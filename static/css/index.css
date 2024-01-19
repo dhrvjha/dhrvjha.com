@@ -1,0 +1,7 @@
+.container {
+    display:grid;
+}
+
+body {
+    background-color: red;
+}
