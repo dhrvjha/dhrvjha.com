@@ -1,5 +1,4 @@
-FROM python:3.11.4-slim-buster
-
+FROM python:3.12.1-slim-bullseye
 WORKDIR /usr/src/dhrvjha
 
 ENV PYTHONDONTWRITEBYTECODE 1
