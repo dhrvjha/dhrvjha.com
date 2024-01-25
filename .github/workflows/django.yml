@@ -16,8 +16,6 @@ jobs:
       run: docker compose build
     - name: Run Docker container
       run: docker compose up -d
-    - name: Wait for Django to start
-      run: docker compose exec web python manage.py wait_for_db
     - name: Run Django tests
       run: docker compose exec web python manage.py test
     - name: Stop Docker container
