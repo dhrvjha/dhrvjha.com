@@ -3,7 +3,7 @@ name: Release CD
 on:
   push:
     branches: [ "release" ]
-  pull_request:
+  pull:
     branches: [ "master" ]
 
 jobs:
@@ -32,4 +32,4 @@ jobs:
         context: .
         file: ./Dockerfile.prod
         push: true
-        tags: ${{ env.IMAGE_TAG}}
+        tags: ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME  }}-web:${{ env.IMAGE_TAG }}
