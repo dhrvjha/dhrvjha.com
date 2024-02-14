@@ -22,10 +22,12 @@ jobs:
         password: ${{ secrets.DOCKER_USER_TOKEN }}
     - name: Set Image Tag
       run: echo "IMAGE_TAG=${GITHUB_SHA::8}" >> $GITHUB_ENV
+    - name: Image Name
+      run: echo ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME }}-web:${IMAGE_TAG}
     - name: Build and Push
       uses: docker/build-push-action@v5
       with:
         context: .
         file: ./Dockerfile.prod
         push: true
-        tags: ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME }}-web:${IMAGE_TAG}
+        tags: ${{ secrets.DOCKER_USER_NAME || "dhrvjha" }}/${{ secrets.DOCKER_USER_NAME || "dhrvjha" }}-web:${IMAGE_TAG}
