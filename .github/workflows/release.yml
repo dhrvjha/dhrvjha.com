@@ -32,4 +32,4 @@ jobs:
         context: .
         file: ./Dockerfile.prod
         push: true
-        tags: ${IMAGE_TAG}
+        tags: ${{ env.IMAGE_TAG}}
