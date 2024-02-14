@@ -3,6 +3,8 @@ name: Release CD
 on:
   push:
     branches: [ "release" ]
+  pull:
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -30,4 +32,4 @@ jobs:
         context: .
         file: ./Dockerfile.prod
         push: true
-        tags: ${{ secrets.DOCKER_USER_NAME || "dhrvjha" }}/${{ secrets.DOCKER_USER_NAME || "dhrvjha" }}-web:${IMAGE_TAG}
+        tags: ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME }}-web:${IMAGE_TAG}
