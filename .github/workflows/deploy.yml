@@ -1,0 +1,21 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ "release" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Pull Image From Docker Repo
+        run: docker pull dhrjha/dhrjha-web
+      - name: Run dhrvjha-web
+        run: |
+          docker run -d -p 8000:8000 --env-file ./.env.dev
+      - name: Run nginx
+        run: docker run -d -p 1337:80 -v $(pwd)/nginx:/nginx nginx
