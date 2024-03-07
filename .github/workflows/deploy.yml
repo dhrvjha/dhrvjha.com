@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Pull Image From Docker Repo
-        run: docker pull dhrjha/dhrjha-web
+        run: docker pull dhrvjha/dhrvjha-web
       - name: Run dhrvjha-web
         run: |
           docker run -d -p 8000:8000 --env-file ./.env.dev
