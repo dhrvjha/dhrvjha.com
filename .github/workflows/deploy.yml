@@ -1,0 +1,20 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows: [Release CD]
+    types: [completed]
+    branches: [release]
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Pull Image From Docker Repo
+        run: docker pull dhrvjha/dhrvjha-web
+      - name: Run dhrvjha-web
+        run: |
+          docker run -d -p 8000:8000 --env-file ./.env.dev
+      - name: Run nginx
+        run: docker run -d -p 1337:80 -v $(pwd)/nginx:/nginx nginx
