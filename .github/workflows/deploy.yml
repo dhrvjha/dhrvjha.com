@@ -1,14 +1,11 @@
 name: Deploy
 
 on:
-  push:
-    branches: [ "release" ]
-  pull_request:
-    branches: [ "master" ]
-
+  workflow_run:
+    workflows: [Release CD]
+    types: [completed]
+    branches: [release]
 jobs:
-  release:
-    uses: dhrvjha/dhrvjha.com/.github/workflows/release.yml@release
   deploy:
     runs-on: self-hosted
     steps:
