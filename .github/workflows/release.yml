@@ -31,4 +31,4 @@ jobs:
         context: .
         file: ./Dockerfile.prod
         push: ${{ github.event_name != 'pull_request' }}
-        tags: ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME }}-web:${{ env.IMAGE_TAG }}, latest
+        tags: ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME }}-web:${{ env.IMAGE_TAG }}
