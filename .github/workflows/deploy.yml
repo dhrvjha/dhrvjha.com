@@ -11,10 +11,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set Image Tag
+        run: echo "IMAGE_TAG=${GITHUB_SHA::8}" >> $GITHUB_ENV
       - name: Pull Image From Docker Repo
-        run: docker pull dhrvjha/dhrvjha-web
+        run: docker pull dhrvjha/dhrvjha-web:${IMAGE_TAG}
       - name: Run dhrvjha-web
         run: |
-          docker run -d -p 8000:8000 --env-file ./.env.dev
-      - name: Run nginx
-        run: docker run -d -p 1337:80 -v $(pwd)/nginx:/nginx nginx
+          docker run -d -p 8000:8000 --env-file ./.env.dev dhrvjha/dhrvjha-web:${IMAGE_TAG}
+      - name: Run dhrvjha-nginx
+        run: docker run -d -p 1337:80 dhrvjha/dhrvjha-nginx
