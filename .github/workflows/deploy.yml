@@ -18,5 +18,5 @@ jobs:
       - name: Run dhrvjha-web
         run: |
           docker run -d -p 8000:8000 --env-file ./.env.dev dhrvjha/dhrvjha-web:${IMAGE_TAG}
-      - name: Run nginx
-        run: docker run -d -p 1337:80 -v $(pwd)/nginx:/nginx nginx
+      - name: Run dhrvjha-nginx
+        run: docker run -d -p 1337:80 dhrvjha/dhrvjha-nginx
