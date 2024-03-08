@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: [Release CD]
     types: [completed]
-    branches: [release]
+    # branches: [release]
 jobs:
   deploy:
     runs-on: self-hosted

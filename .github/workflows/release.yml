@@ -30,5 +30,6 @@ jobs:
       with:
         context: .
         file: ./Dockerfile.prod
-        push: ${{ github.event_name != 'pull_request' }}
+        # push: ${{ github.event_name != 'pull_request' }}
+        push: true
         tags: ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME }}-web:${{ env.IMAGE_TAG }}
