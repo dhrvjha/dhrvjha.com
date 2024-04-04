@@ -22,17 +22,8 @@ RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/dhrvjha/wheels -r re
 
 FROM python:3.12.1-slim-bullseye
 
-RUN mkdir -p /home/dhrvjha
-
-RUN addgroup --system dhrvjha && adduser --system --group dhrvjha
-
-ENV HOME=/home/dhrvjha
-ENV APP_HOME=/home/dhrvjha/web
-ENV DJANGO_SETTINGS_MODULE=config.settings_prod
-ENV DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,[::1]
-ENV DEBUG=1
-RUN mkdir $APP_HOME
-WORKDIR $APP_HOME
+    ports:
+      - 8000:8000
 
 RUN apt-get update && apt-get install -y --no-install-recommends netcat
 COPY --from=builder /usr/src/dhrvjha/wheels/ /wheels

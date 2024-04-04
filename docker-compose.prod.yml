@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   web:
-    image: dhrvjha/dhrvjha_web:${IMAGE_TAG}
+    image: dhrvjha/dhrvjha_web
     build:
       context: .
       dockerfile: Dockerfile.prod
@@ -14,4 +14,5 @@ services:
     build: ./nginx
     ports:
       - 1337:80
-
+    depends_on:
+      - web
