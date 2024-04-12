@@ -15,7 +15,7 @@ jobs:
     - name: Build Docker image
       run: docker compose build
     - name: Run Docker container
-      run: docker compose up -d
+      run: docker compose -f docker-compose.dev.yml up -d
     - name: Run Django tests
       run: docker compose exec web python manage.py test
     - name: Stop Docker container
