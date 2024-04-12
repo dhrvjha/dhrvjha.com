@@ -2,24 +2,14 @@ version: '3.8'
 
 services:
   web:
-    container_name: dhrvjha_web
-    build: .
-    command: gunicorn dhrvjha.wsgi:application --bind 0.0.0.0:8000
-    volumes:
-      - .:/usr/src/dhrvjha
-      - static_volume:/home/dhrvjha/web/staticfiles
-    expose:
-      - 8000
+    image: dhrvjha/dhrvjha_web
     env_file:
       - ./.env.dev
+    expose:
+      - 8000
   nginx:
-    build: ./nginx
+    image: dhrvjha/dhrvjha-nginx
     ports:
       - 80:80
     depends_on:
       - web
-    volumes:
-      - static_volume:/home/dhrvjha/web/staticfiles
-
-volumes:
-  static_volume:
