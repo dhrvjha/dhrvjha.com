@@ -31,11 +31,11 @@ jobs:
         context: .
         file: ./Dockerfile
         push: ${{ github.event_name != 'pull_request' }}
-        tags: ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME }}-web:${{ env.IMAGE_TAG }},${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME }}-latest
+        tags: ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME }}-web:${{ env.IMAGE_TAG }},${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME }}-web
     - name: Build and Push
       uses: docker/build-push-action@v5
       with:
         context: .
         file: ./nginx/Dockerfile.prod
         push: ${{ github.event_name != 'pull_request' }}
-        tags: ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME }}-nginx:${{ env.IMAGE_TAG }},${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME }}-latest
+        tags: ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME }}-nginx:${{ env.IMAGE_TAG }},${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME }}-nginx
