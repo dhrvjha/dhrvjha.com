@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   web:
-    image: dhrvjha/dhrvjha_web
+    image: dhrvjha/dhrvjha-web
     env_file:
       - ./.env.dev
     expose:
