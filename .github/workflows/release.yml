@@ -45,6 +45,8 @@ jobs:
       run: |
         git config user.name github-actions
         git config user.email actions@github.com
-        git switch origin/build
+        git fetch origin build
+        git switch build
+        git fetch origin master
         git merge origin/master
         git push origin build 
