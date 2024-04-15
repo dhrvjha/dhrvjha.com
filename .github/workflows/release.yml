@@ -2,7 +2,7 @@ name: Release CD
 
 on:
   push:
-    branches: [ "release" ]
+    branches: [ "build" ]
   pull_request:
     branches: [ "master" ]
 
