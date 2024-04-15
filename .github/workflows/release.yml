@@ -2,7 +2,7 @@ name: Release CD
 
 on:
   push:
-    branches: [ "release" ]
+    branches: [ "build" ]
   pull_request:
     branches: [ "master" ]
 
@@ -39,3 +39,12 @@ jobs:
         file: ./nginx/Dockerfile.prod
         push: ${{ github.event_name != 'pull_request' }}
         tags: ${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME }}-nginx:${{ env.IMAGE_TAG }},${{ secrets.DOCKER_USER_NAME }}/${{ secrets.DOCKER_USER_NAME }}-nginx
+    - name: Push to release branch
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      run: |
+        git config user.name github-actions
+        git config user.email actions@github.com
+        git switch origin/build
+        git merge origin/master
+        git push origin build 
