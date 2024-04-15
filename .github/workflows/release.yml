@@ -43,10 +43,8 @@ jobs:
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       run: |
-<<<<<<< HEAD
         git config user.name github-actions
         git config user.email actions@github.com
         git switch origin/build
         git merge origin/master
         git push origin build 
->>>>>>> 4d7fc03b1c4f324cbd84babc23630f6c094d260a
