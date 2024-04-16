@@ -42,6 +42,8 @@ RUN pip install --no-cache /wheels/*
 
 COPY . $APP_HOME
 
+RUN python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput
+
 RUN chown -R dhrvjha:dhrvjha $APP_HOME
 
 USER dhrvjha

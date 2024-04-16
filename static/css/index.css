@@ -1,7 +1,152 @@
-.container {
-    display:grid;
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --yellow-dark: #c09c32;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gold: #e3cb13;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #043a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
 }
 
+.horizontal-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between !important;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+}
+
+.horizontal-list a {
+    padding: 0rem 0.5rem 0rem 0.5rem;
+    list-style: none;
+    text-decoration: none;
+    color: var(--yellow-dark);
+}
+
+.flex-container {
+    display: flex;
+}
+
+.container {
+    padding: 5%;
+    display: flex;
+    flex-direction: row;
+    gap: 12rem;
+}
+
+
+.about-me {
+    text-align: center;
+    padding: 2%;
+    color: var(--light)
+}
+
+.navbar {
+    display: flex;
+    border-bottom: 2px solid var(--gray-dark);
+}
+html {
+    height: 100%;
+}
+.page-container {
+    display: flex;
+    flex-direction: column;
+}
 body {
-    background-color: red;
+    margin: 0px;
+    padding: 0px;
+    min-height: 100%;
+    background-color: var(--dark);
+    background-image: linear-gradient(to bottom left, var(--dark), var(--dark), var(--dark), var(--gold));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+footer {
+    margin-top: auto;
+    width: 100%;
+    height: 2.5rem;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.profile-picture {
+    margin-left: 5rem;
+    border-radius: 50% !important;
+    width: 300px;
+    height: 300px;
+}
+.horizontal-list {
+}
+ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-right: 40px;
+    list-style-type: none;
+}
+
+@media only screen and (max-width: 420px) {
+    ul {
+        align-items: center;
+        /* flex-direction: column; */
+    }
+    .profile-picture {
+        margin-left: auto;
+        margin-right: auto;
+        width: 230px;
+        height: 230px;
+    }
+    .about-me {
+        justify-content: center;
+    }
+    .container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+.top-links {
+    flex-wrap: wrap;
+}
+.top-links > li {
+    text-transform: capitalize;
+    color: var(--yellow-dark)
+}
+h1 {
+    font-family: var(--font-family-monospace)
+}
+.dark-bg {
+    /* background-color: var(--dark); */
+}
+
+.light-text {
+    color: var(--gold);
 }

@@ -5,9 +5,16 @@ services:
     image: dhrvjha/dhrvjha-web
     expose:
       - 8000
+    volumes:
+      - static_volume:/home/dhrvjha/web/staticfiles
   nginx:
     image: dhrvjha/dhrvjha-nginx
     ports:
       - 80:80
     depends_on:
       - web
+    volumes:
+      - static_volume:/home/dhrvjha/web/staticfiles
+
+volumes:
+  static_volume:
