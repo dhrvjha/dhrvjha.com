@@ -1,22 +1,56 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-    <head>
-        <title>{{ page.title }}</title>
-        <meta charset="UTF-8">
-        <meta name="keywords" content="dhrvjha, portfolio of Dhruv, Dhruv Kumar Jha">
-        <meta name="description" content="{{ page.description }}">
-        <meta name="author" content="dhrvjha">
-        <meta name="viewport content="width="device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
-    </head>
-    <body>
-        <div class="container dynamic">
-            <h1>Hello Ashu</h1>
-            <div>
-                {% block 'content' %}
-                {% endblock 'content' %}
-            </div>
-        </div>
-    </body>
+	<head>
+		<title>{{ page.title }}</title>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="dhrvjha, portfolio of Dhruv, Dhruv Kumar Jha">
+		<meta name="description" content="{{ page.description }}">
+		<meta name="author" content="dhrvjha">
+		<meta name="viewport content="width="device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+	</head>
+	<body class="page-container">
+		<nav class="navbar dark-bg">
+			<div class="nav-title center">
+				<h1 class="light-text">Dhruv Jha</h1>
+			</div>
+		</nav>
+		<div class="horizontal-list">
+			<a href="#">Books</a>
+			<a href="#">Books</a>
+			<a href="#">Books</a>
+			<a href="#">Books</a>
+			<a href="#">Books</a>
+			<a href="#">Books</a>
+			<a href="#">#</a>
+		</div>
+		<main class="container">
+			<picture class="flex-container">
+				<img class="profile-picture center" src="https://raw.githubusercontent.com/dhrvjha/templates.dhrvjha.com/master/dhruv.jpeg" alt="Dhruv's profile picture">
+			</picture>
+			<div class="about-me">
+				<p>
+				Hi, I am Dhruv.
+				</p>
+				<p>
+				I am fresh graduate in Information Technology and work in Accenture Solutions PVT LTD based in India.
+				</p>
+				<p>
+				I love working in python and I build software which dies in a github repo.
+				</p>
+				<p>
+				Aside of jokes, I write about things that I have done recently so you can catch up on me in my blogs.
+				</p>
+				<ul>
+					<li>dhrvjha on Github</li>
+					<li>dhrvjha on Twitter</li>
+					<li>mr-dhruv-jha on linkdln</li>
+				</ul>
+			</div>
+		</main>
+		<footer class="center">
+			Made with ❤️ in Python.
+		</footer>
+	</body>
 </html>
